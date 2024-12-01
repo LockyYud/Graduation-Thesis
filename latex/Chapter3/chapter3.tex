@@ -1,0 +1,102 @@
+\chapter{Đề xuất phương pháp cải thiện khả năng trả lời của Chatbot thông qua sử dụng mô hình RAG tích hợp với truy xuất đồ thị tri thức}
+\label{chapter:proposed_method}
+
+Nội dung của chương này cung cấp chi tiết về phương pháp được đề xuất để cải thiện khả năng của Chatbot hỗ trợ hỏi đáp từ tài liệu. Cấu trúc của chương này gồm có hai phần chính, trước tiên là phần \ref{section:storage_knowledge} thảo luận về phương pháp xây dựng đồ thị tri thức, cơ sở dữ liệu từ những tài liệu được cung cấp. Tiếp đó phần \ref{section:rag_integrated_knowledge_graph} mô tả cốt lõi khả năng của một Chatbot là phương pháp RAG tích hợp truy xuất, suy luận đồ thị tri thức với truy xuất cơ sở dữ liệu vector để nâng cao khả năng của mô hình ngôn ngữ lớn (LLMs). Phương pháp đề xuất kết hợp việc mở rộng chuỗi logic dựa trên các liên kết trong KG với thông tin ngữ cảnh liên kết với các thực thể liên quan bằng cách thực hiện lặp đi lặp lại việc truy xuất ngữ cảnh dựa tri thức và sử dụng ngữ cảnh tăng cường truy xuất đồ thị. từ đó tích hợp và sử dụng hiệu quả hơn kiến thức bên ngoài từ các dạng cấu trúc khác nhau.
+
+\section{Xây dựng đồ thị tri thức, cơ sở dữ liệu từ những tài liệu được cung cấp}
+\label{section:storage_knowledge}
+Việc lưu trữ các tài liệu cũng như tri thức từ các tài liệu dưới dạng đồ thị tri thức (Knowledge Graph - KG) là một phần quan trọng trong việc xây dựng một hệ thống hỏi đáp thông minh. Trong phần này, phương pháp được sử dụng lưu trữ tài liệu và tri thức của chúng sẽ được trình bày một cách chi tiết.
+\subsection{Xây dựng đồ thị tri thức từ tài liệu}
+\label{subsection:knowledge_graph_construction_from_document}
+Một đồ thị tri thức (KG) là một biểu diễn có cấu trúc của các thực thể trong thế giới thực, các thuộc tính của chúng và mối quan hệ giữa chúng. Một KG thường được biểu diễn dưới dạng một tập hợp các bộ ba có hướng \((\text{thực thể}, \text{mối quan hệ}, \text{thực thể})\). Nói cách khác, một KG bao gồm các nút đại diện cho các thực thể và các cạnh đại diện cho các mối quan hệ, cùng với nhãn và thuộc tính cho cả hai. Một bộ ba đồ thị là một đơn vị thông tin cơ bản trong một KG, bao gồm một chủ ngữ, một vị ngữ và một tân ngữ.
+Trong phạm vi của bài khóa luận này, việc xây dựng KG từ tài liệu sẽ được thực hiện qua hai bước chính: trích xuất tri thức và cải thiện tri thức.
+
+\paragraph{Tri thức trích xuất:}
+Mục tiêu của bước này đến việc chuyển đổi thông tin, tri thức từ dữ liệu không có cấu trúc như văn bản thành một KG có cấu trúc có thể được truy vấn sau này. Quá trình này chủ yếu phụ thuộc vào việc trích xuất các bộ ba có định dạng là \(
+\text{(thực thể)} \ - \ \left[\text{mối quan hệ}\right] \ \rightarrow \ \text{(thực thể)}
+\).
+Để hỗ trợ điều này, phương pháp few-shot prompt được áp dụng vào một LLM, yêu cầu nó trích xuất càng nhiều bộ ba càng tốt từ các đoạn văn bản, đồng thời đưa các ví dụ về chuyển đổi văn bản thành bộ ba vào trong câu lệnh. Các tác vụ chính trong bước này sẽ bao gồm nhận dạng thực thể (ER), trích xuất mối quan thông qua sử dụng LLM với các prompt tương ứng.
+
+\paragraph{Cải thiện tri thức:}
+Bước này nhằm nâng cao chất lượng và độ hoàn thiện của KG bằng cách loại bỏ các thông tin dư thừa và khắc phục những lỗ hổng trong dữ liệu đã trích xuất. Các nhiệm vụ chính trong bước này bao gồm hoàn thiện KG và hợp nhất tri thức.
+Kỹ thuật hoàn thiện KG tìm ra các thực thể, mối quan hệ còn thiếu trong đồ thị bằng phương pháp dự đoán liên kết và xác định thực thể. Dự đoán liên kết dự đoán sự tồn tại và loại mối quan hệ giữa hai thực thể dựa trên cấu trúc và đặc điểm của đồ thị. Trong khi đó xác định thực thể khớp và hợp nhất các thực thể cùng biểu diễn một thực thể, khái niệm trong thế giới thực.
+Quá trình hợp nhất tri thức kết hợp thông tin từ nhiều nguồn khác nhau để tạo ra một KG hoàn chỉnh và thống nhất. Các nguồn thông tin này có thể bao gồm các KG khác, dữ liệu từ các nguồn bên ngoài, ... Quá trình này bao gồm giải quyết xung đột và trùng lặp giữa các nguồn và tổng hợp hoặc điều hòa thông tin dựa trên các quy tắc, xác suất, hoặc sự tương đồng ngữ nghĩa.
+
+Một chuỗi LLM được triển khai gồm 2 tầng để tinh chỉnh nội dung và trích xuất chi thức. Tầng thứ nhất sử dụng một LLM để tạo ra biểu diễn tóm tắt cho từng đoạn tài liệu. Quá trình tinh chỉnh này rất quan trọng vì nó chắt lọc thông tin cốt lõi đồng thời giữ nguyên ý nghĩa ban đầu và các mối quan hệ chính giữa các khái niệm. Điều này cung cấp một đầu vào tập trung hơn cho các bước xử lý tiếp theo, nâng cao hiệu quả và độ chính xác của quy trình trích xuất bộ ba. Tầng thứ hai là một LLM dành riêng cho việc trích xuất thực thể và xác định mối quan hệ. Tất cả các bước đều được thực hiện thông qua kỹ thuật gợi ý (prompt engineering) một cách cẩn thận.
+
+\subsection{Xây dựng cây tài liệu từ tài liệu}
+\label{subsection:document_tree_construction}
+Trong phạm vi là các tài liệu liên quan đến một chủ đề cụ thể, thì các tài liệu này đều sẽ là dạng văn bản bán cấu trúc với các tiêu đề, đoạn văn, câu, từ, ... Để tận dụng được cấu trúc của các tài liệu này, một cây tài liệu sẽ được xây dựng từ các tài liệu. Cây tài liệu này sẽ được xây dựng dựa trên mục lục của tài liệu. Mỗi nút trong cây tài liệu sẽ biểu diễn một phần của tài liệu, từ đó giúp cho việc truy xuất thông tin từ tài liệu trở nên dễ dàng hơn. Với việc xây dựng cây tài liệu, việc truy xuất thông tin từ tài liệu sẽ trở nên dễ dàng hơn cũng như có thể phản ảnh được mối liên quan giữa các tài liệu với nhau thông qua khoảng cách giữa các nút trong cây tài liệu. Càng gần nhau thì mối liên quan về ngữ cảnh giữa các tài liệu càng cao.
+
+\section{Mô hình RAG tích hợp truy xuất, suy luận đồ thị tri thức với truy xuất cơ sở dữ liệu vector}
+\label{section:rag_integrated_knowledge_graph}
+Phần này sẽ trình bày chi tiết từng bước của mô hình được đề xuất trong bài khóa luận này. Mô hình này sẽ bắt đầu với phần khởi tạo, trích xuất các thực thể từ câu hỏi đã cho làm các thực thể chủ đề ban đầu. Sau đó, nó thực hiện một quy trình lặp đi lặp lại việc khám phá tri thức và lý luận các tri thức được khám phá thông qua việc sử dụng LLM. Tại mỗi vòng lặp, bước “khám phá” sẽ truy xuất, tìm kiếm tri thức có chọn lọc bao gồm các quan hệ, thực thể liền kề với thực thể chủ đề hiện tại dựa trên KG, sử dụng các thực thể mới gặp phải để tinh chỉnh phạm vi truy xuất, từ đó nâng cao cả hiệu quả và độ chính xác. Rồi sau đó, sẽ xếp hạng và chọn lọc các thực thể dựa trên truy vấn và các ngữ cảnh thu thập được từ các tài liệu có liên quan để giảm thiểu sự mơ hồ từ đó tìm ra top-N reasoning paths. Tiếp đến tại bước “lý luận”, sử dụng LLM đánh giá các thông tin, kiến thức có được từ các reasoning path, ngữ cảnh có đủ thông tin để trả lời câu hỏi. Quá trình này tiếp tục cho đến khi thu thập đủ thông tin thông qua top-N đường lý luận để trả lời câu hỏi (được đánh giá bởi LLM trong bước "lý luận") hoặc đạt đến độ sâu tìm kiếm tối đa được định trước.
+
+\subsection{Khởi tạo}
+\label{subsection:initialization}
+Với đầu vào là câu hỏi $q$, bước đầu tiên là xác định thực thể xuất hiện trong q và liên kết chúng với các thực thể tương ứng trong đồ thị tri thức. Bước này có thể được hoàn thành dựa vào nhiều phương pháp liên kết thực thể (Entity Linking - EL) khác nhau, tiêu biểu có thể sử dụng LLMs hoặc các công cụ, mô hình chuyên về EL. Tiếp theo là bước đánh giá thực thể (Topic Evaluate - TE) để chọn ra những thực thể phù hợp nhất làm điểm bắt đầu cho việc khám phá trong một KG. Bước này sẽ sử dụng LLM để đánh giá câu hỏi q và các thực thể xuất hiện, từ đó chọn ra chủ đề $E_n (e_1, e_2, \dots, e_n)$
+
+Trước khi bước vào lần đầu tiên truy xuất đồ thị, mô hình truy xuất đặc trưng sẽ được sử dụng để trích xuất $top-k$ đoạn văn từ các tài liệu liên kết với với các chủ đề ban đầu $E_{\text{topic}}$. Sau đó LLM sẽ đánh giá thông tin này có đủ để trả lời câu hỏi hay không dựa vào kiến thức đã được huấn luyện của nó. Nếu LLM kết luận rằng thông tin hiện có đủ để trả lời câu hỏi, các bước tiếp theo là không cần thiết và có thể trực tiếp trả về câu hỏi cho người dùng.
+
+\subsection{Khám phá tri thức}
+\label{subsection:knowledge_exploration}
+Phần này sẽ trình bày chi tiết cách mô hình được đề xuất lặp lại quy trình khám phá tri thức để thống nhất và gắn kết chặt chẽ các tri thức từ KG và các đoạn văn. Tại thời điểm bắt đầu của vòng lặp thứ $i$, mỗi path $p_n$ bao gồm $n - 1$ bộ 3, một bộ ba ở đây tức là: $p_n = {(e_{s,n}^d, r_j^d, e_{o,n}^d)}_{d=1}^{D-1}$, trong đó $e_{s,n}^d$ và $e_{o,n}^d$ lần lượt biểu thị các thực thể chủ ngữ và thực thể tân ngữ, $r_j^d$ là một quan hệ cụ thể giữa chúng. Các bộ ba $(e_{s,n}^d, r_j^d, e_{o,n}^d)$ và $(e_{s,n}^{d+1}, r_j^{d+1}, e_{o,n}^{d+1})$ được kết nối với nhau. Tập hợp các thực thể đuôi và các quan hệ trong P lần lượt được ký hiệu là $E^{D-1} = {e_1^{D-1}, e_2^{D-1}, ..., e_N^{D-1}}$ và $R^{D-1} = {r_1^{D-1}, r_2^{D-1}, ..., r_N^{D-1}}$. Quá trình lặp lại này gồm có 2 phần chính: nâng cao truy xuất đồ thị thông qua ngữ cảnh và truy xuất ngữ cảnh thông qua hướng dẫn từ tri thức:
+
+\subsubsection{Nâng cao truy xuất đồ thị thông qua ngữ cảnh:}
+
+Bằng cách tận dụng sự kết nối phong phú có cấu trúc của kiến thức trên đồ thị tri thức (KG), việc tìm kiếm trên đồ thị nhằm khám phá và thiết lập các khái niệm cấp cao cũng như mối quan hệ giữa câu hỏi và thông tin mục tiêu, vốn dường như cách xa nhau trong không gian ngữ nghĩa. Mô hình được đề xuất trong bài khóa luận bao gồm các bước sau đây.
+\paragraph{Tìm kiếm quan hệ liên quan (Relation Exploration):}
+tại thời điểm bắt đầu của vòng lặp thứ i, mô hình sẽ tìm kiếm toàn bộ quan hệ được liên kết tới thực thể cuối cùng của mỗi reasoning path thông qua sử dụng hàm:
+\begin{equation}
+    \text{Edge}(e_{s,n}^{D-1}, e_{o,n}^{D-1}) = \{(r_{s,n}^{D-1}, m, h_m) | h_m \in \{True, False\}\}
+    \label{eq:1}
+\end{equation}
+Hàm Edge() là hàm tìm kiếm các quan hệ (relationship) của thực thể. Trong đó $h$ biểu thị chiều của quan hệ $r$ đối với thực thể $e$.
+
+\paragraph{Cắt giảm các quan hệ (Relation Prune):}
+Thông qua phương trình \ref{eq:1} ta thu được các tập quan hệ
+$\{{Edge(e^i_j )}\}^W_{j=1}$, tại đây sẽ sử dụng phương pháp few-shot prompt để yêu cầu LLM đánh giá, lựa chọn và chấm điểm các mối quan hệ có khả năng tìm thấy thực thể chứa thông tin ngữ cảnh phù hợp hữu ích cho việc giải quyết câu hỏi q. Rồi sau đó chọn ra top-N mối quan hệ phù hợp nhất cho từng reasoning path. Tại đây, có 2 prompt được xây dựng để sử dụng:
+\begin{equation}
+    PROMPT_\emph{RP}(e^i_j , q, Edge(e^i_j))
+    \label{eq:2}
+\end{equation}
+và
+\begin{equation}
+    PROMPT_\emph{RP\_cmb} (E^i_\emph{topic}, q, {Edge(e^i_j)}^W_{j=1})
+    \label{eq:3}
+\end{equation}
+Chi tiết của các prompt sẽ được trình bày tại phần phụ lục. phương trình \ref{eq:2} được xây dựng với mục tiêu là gọi LLM nhiều lần cho việc RP trên từng reasoning paths, trong khi đó phương trình \ref{eq:3} được xây dựng để xử lý việc chọn quan hệ phù hợp cho tất cả các reasoning paths trong 1 lần sử dụng LLM. Phương trình \ref{eq:2} đơn giản hóa nhiệm vụ của LLM, nhưng nó lại thiếu hiệu quả khi phải sử dụng LLM nhiều lần. Còn tại phương trình \ref{eq:3}, việc xử lý tất cả trong 1 lần giúp cho việc sử dụng LLM giảm đi từ đó nâng cao tốc độ suy luận và cho phép xem xét một cách tổng quan các mối liên kết giữa nhiều reasoning path cùng lúc, tạo điều kiện cho việc đánh giá trở nên khách quan, chính xác hơn. Tuy nhiên, việc đưa toàn bộ các quan hệ với số lượng lớn đối với từng reasoning path là một thử thách cho hiệu quả xử lý văn bản dài của LLM.
+%   Các quan hệ được lựa chọn cho toàn bộ reasoning path tại vòng lặp thứ i được biểu thị qua $Ri = {r i j,m} (j ∈ [1, W])$.
+
+\paragraph{Khám phá thực thể (Entity Discovery):} Tại đây chúng ta có tập các quan hệ tương ứng liên kết với thực thể cuối của từng reasoning path từ bước RP. Cho một reasoning path $p^i$ trong $P$ với $e^i_j$ là thực thể đuôi của $p^i$ và các mối quan hệ tương ứng $r^i_{j,m}$ đã được chọn trong $R_i$, mô hình sử dụng hàm sau:
+\begin{equation}
+    Tail(e^i_j, (r^i_{j,m}, h_m)) = c^i_{j,m}
+    \label{eq:4}
+\end{equation}
+từ đó xác định các thực thể $c^i_{j,m}$ kết nốt với $e^i_j$ thông qua quan hệ $(r^i_{j,m}, h_m)$.
+
+
+\subsubsection{Truy xuất ngữ cảnh thông qua hướng dẫn từ tri thức:}
+
+Trong bước này, mô hình sẽ khai thác thông tin chi tiết dựa theo các tri thức trích xuất được từ KG. Sau khi xác định được tất cả các thực thể ứng viên thông qua thực thi hàm \ref{eq:4}. Hệ thống sẽ thu thập các tài liệu được liên kết với các thực thể ứng viên, rồi sau đó đánh giá, xếp hạng những tài liệu này rồi chọn ra $top-k$ tài liệu có điểm cao nhất. Say đây là các bước chi tiết thực hiện:
+\paragraph{Truy xuất ngữ cảnh, đoạn văn dựa trên các thực thể:}
+để tìm kiếm những thông tin hữu dụng từ trong các tài liệu ngữ cảnh liên kết với các thực thể ứng viên, mô hình sẽ sử dụng mô hình DRM để tính điểm liên quan của các tài liệu. Thay vì tính toán trực tiếp điểm liên quan giữa tài liệu ngữ cảnh và câu hỏi - từ đó bỏ qua ngữ cảnh giữa tài liệu và thực thể tương ứng của nó - điểm sẽ được tính thông qua việc chuyển đồi reasoning paths $p_i$ hiện tại của thực thể ứng viên thành một câu ngắn gọn và thêm nó vào ngữ cảnh rồi từ đó sẽ sử dụng mô hình DRM để đánh giá điểm liên quan giữa ngữ cảnh mới này và câu hỏi. Đây là phương trình tính điểm liên quan giữa tài liệu thứ $z$ của thực thể ứng viên $c^i_{j,m}$ như sau:
+\begin{equation}
+    srl^i_{j,m} = \text{DRM}(q, [brief_sentence(p^i), :chunk^i_{j,m,z}])
+    \label{eq:5}
+\end{equation}
+Từ phương trình \ref{eq:5}, ta thu được tập .Vì các tài liệu được lưu trữ dưới dạng cây tài liệu, nên giữa các tài liệu luôn có mối quan hệ về ngữ cảnh, vậy nên để tính điểm của mỗi tài liệu sẽ chịu tác động từ các tài liệu khác. Dưới đây là phương trình tính điểm giữa tài liệu $i$ và $j$:
+\begin{equation}
+    srl^i_{j,m} = 1/Distance(i, j) \sum_{z=1}^{Z} srl^i_{j,m,z}
+\end{equation}
+\paragraph{Cắt giảm thực thể (Entity Prune):} sau khi đã xếp hạng và chọn được $top-k$ tài liệu có điểm cao nhất, mô hình sẽ sử dụng LLM với prompt:
+\begin{equation}
+    PROMPT_\emph{EP}(c^i_{j,m}, q, \{srl^i_{j,m}\}^Z_{z=1})
+    \label{eq:6}
+\end{equation}
+để đánh giá, chấm điểm các reasoning paths với đuôi là các thực thể ứng viên để chọn ra nhưng reasoning paths có khả năng trả lời câu hỏi tốt nhất và để sử dụng cho các bước tiếp theo.
+
+
+\subsection{Suy luận từ tri thức kết hợp}
+\label{subsection:integrated_reasoning_from_knowledge}
+Cuối vòng lặp thứ i, mô hình sẽ sử dụng LLM với prompt với toàn bộ tri thức tìm được từ các bước phía trên, bao gồm reasoning path,$ Clue^i-1$, và các đoạn văn ngữ cảnh tương ứng, để đánh giá liệu rằng các thông tin đó có đủ để trả lời câu hỏi, với$ Clue^i-1$ là phản hồi truy xuất từ lần lặp phía trước với mục tiêu là để duy trì tri thức hữu ích từ bối cảnh lịch sử. Nếu LLM đánh giá rằng kiến thức được cung cấp là đủ để đưa ra câu trả lời, sẽ trực tiếp trả về câu trả lời. Ngược lại, thì sẽ tiếp tục vòng lặp kế tiếp.
