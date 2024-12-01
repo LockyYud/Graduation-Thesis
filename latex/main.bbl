@@ -1,0 +1,193 @@
+\begin{thebibliography}{10}
+
+\bibitem{radford2018improving}
+A.~Radford, K.~Narasimhan, T.~Salimans, I.~Sutskever, and et~al., ``Improving
+  language understanding by generative pre-training,'' {\em arXiv preprint},
+  2018.
+\newblock arXiv:1801.06146.
+
+\bibitem{gao2023retrievalaugmented}
+Y.~Gao, Y.~Xiong, X.~Gao, K.~Jia, J.~Pan, Y.~Bi, Y.~Dai, J.~Sun, and H.~Wang,
+  ``Retrieval-augmented generation for large language models: A survey,'' {\em
+  arXiv preprint arXiv:2312.10997}, 2023.
+
+\bibitem{li2024matching}
+X.~Li, J.~Jin, Y.~Zhou, Y.~Zhang, P.~Zhang, Y.~Zhu, and Z.~Dou, ``From matching
+  to generation: A survey on generative information retrieval,'' {\em arXiv
+  preprint arXiv:2404.14851}, 2024.
+
+\bibitem{karpukhin2020dense}
+V.~Karpukhin, B.~O˘guz, S.~Min, P.~Lewis, L.~Wu, S.~Edunov, D.~Chen, and
+  W.~t.~Yih, ``Dense passage retrieval for open-domain question answering,''
+  {\em arXiv preprint arXiv:2004.04906}, 2020.
+
+\bibitem{burges2005learning}
+C.~Burges, T.~Shaked, E.~Renshaw, A.~Lazier, M.~Deeds, N.~Hamilton, and
+  G.~Hullender, ``Learning to rank using gradient descent,'' in {\em
+  Proceedings of the 22nd international conference on Machine learning},
+  pp.~89--96, 2005.
+
+\bibitem{robertson2009probabilistic}
+S.~Robertson and H.~Zaragoza, ``The probabilistic relevance framework: Bm25 and
+  beyond,'' {\em Foundations and Trends® in Information Retrieval}, vol.~3,
+  no.~4, pp.~333--389, 2009.
+
+\bibitem{zhao2023survey}
+W.~X. Zhao, K.~Zhou, J.~Li, T.~Tang, X.~Wang, Y.~Hou, Y.~Min, B.~Zhang,
+  J.~Zhang, Z.~Dong, and et~al., ``A survey of large language models,'' {\em
+  arXiv preprint arXiv:2303.18223}, 2023.
+
+\bibitem{rosenfeld2000two}
+R.~Rosenfeld, ``Two decades of statistical language modeling: Where do we go
+  from here?,'' {\em Proceedings of the IEEE}, vol.~88, no.~8, pp.~1270--1278,
+  2000.
+
+\bibitem{bengio2000neural}
+Y.~Bengio, R.~Ducharme, and P.~Vincent, ``A neural probabilistic language
+  model,'' in {\em Advances in neural information processing systems 13}, 2000.
+
+\bibitem{mikolov2013efficient}
+T.~Mikolov, K.~Chen, G.~Corrado, and J.~Dean, ``Efficient estimation of word
+  representations in vector space,'' {\em arXiv preprint arXiv:1301.3781},
+  2013.
+
+\bibitem{pennington2014glove}
+J.~Pennington, R.~Socher, and C.~D. Manning, ``Glove: Global vectors for word
+  representation,'' in {\em Proceedings of the 2014 conference on empirical
+  methods in natural language processing (EMNLP)}, pp.~1532--1543, 2014.
+
+\bibitem{vaswani2017attention}
+A.~Vaswani, N.~Shazeer, N.~Parmar, J.~Uszkoreit, L.~Jones, A.~N. Gomez, Kaiser,
+  and I.~Polosukhin, ``Attention is all you need,'' in {\em Advances in neural
+  information processing systems 30}, 2017.
+
+\bibitem{devlin2018bert}
+J.~Devlin, M.-W. Chang, K.~Lee, and K.~Toutanova, ``Bert: Pre-training of deep
+  bidirectional transformers for language understanding,'' {\em arXiv preprint
+  arXiv:1810.04805}, 2018.
+
+\bibitem{touvron2023llama}
+H.~Touvron, T.~Lavril, G.~Izacard, X.~Martinet, M.-A. Lachaux, T.~Lacroix,
+  B.~Rozière, N.~Goyal, E.~Hambro, F.~Azhar, and et~al., ``Llama: Open and
+  efficient foundation language models,'' {\em arXiv preprint
+  arXiv:2302.13971}, 2023.
+
+\bibitem{chowdhery2023palm}
+A.~Chowdhery, S.~Narang, J.~Devlin, M.~Bosma, G.~Mishra, A.~Roberts, P.~Barham,
+  H.~W. Chung, C.~Sutton, S.~Gehrmann, and et~al., ``Palm: Scaling language
+  modeling with pathways,'' {\em Journal of Machine Learning Research},
+  vol.~24, no.~240, pp.~1--113, 2023.
+
+\bibitem{lewis2019bart}
+M.~Lewis, Y.~Liu, N.~Goyal, M.~Ghazvininejad, A.~Mohamed, O.~Levy, V.~Stoyanov,
+  and L.~Zettlemoyer, ``Bart: Denoising sequence-to-sequence pre-training for
+  natural language generation, translation, and comprehension,'' {\em arXiv
+  preprint arXiv:1910.13461}, 2019.
+
+\bibitem{raffel2020exploring}
+C.~Raffel, N.~Shazeer, A.~Roberts, K.~Lee, S.~Narang, M.~Matena, Y.~Zhou,
+  W.~Li, and P.~J. Liu, ``Exploring the limits of transfer learning with a
+  unified text-to-text transformer,'' {\em Journal of machine learning
+  research}, vol.~21, no.~140, pp.~1--67, 2020.
+
+\bibitem{salton1983extended}
+G.~Salton, E.~A. Fox, and H.~Wu, ``Extended boolean information retrieval,''
+  {\em Communications of the ACM}, vol.~26, no.~11, pp.~1022--1036, 1983.
+
+\bibitem{luhn1957statistical}
+H.~P. Luhn, ``A statistical approach to mechanized encoding and searching of
+  literary information,'' {\em IBM Journal of Research and Development},
+  vol.~1, no.~4, pp.~309--317, 1957.
+
+\bibitem{cao2007learning}
+Z.~Cao, T.~Qin, T.-Y. Liu, M.-F. Tsai, and H.~Li, ``Learning to rank: from
+  pairwise approach to listwise approach,'' in {\em Proceedings of the 24th
+  international conference on Machine learning}, pp.~129--136, 2007.
+
+\bibitem{nogueira2019passage}
+R.~Nogueira and K.~Cho, ``Passage re-ranking with bert,'' {\em arXiv preprint
+  arXiv:1901.04085}, 2019.
+
+\bibitem{guu2020realm}
+K.~Guu, K.~Lee, Z.~Tung, P.~Pasupat, and M.~Chang, ``Realm: Retrieval augmented
+  language model pre-training,'' in {\em International conference on machine
+  learning}, pp.~3929--3938, 2020.
+
+\bibitem{lewis2020retrieval}
+P.~Lewis, E.~Perez, A.~Piktus, F.~Petroni, V.~Karpukhin, N.~Goyal, H.~Küttler,
+  M.~Lewis, W.~t.~Yih, T.~Rocktäschel, and et~al., ``Retrieval-augmented
+  generation for knowledge-intensive nlp tasks,'' in {\em Advances in Neural
+  Information Processing Systems 33}, pp.~9459--9474, 2020.
+
+\bibitem{izacard2020leveraging}
+G.~Izacard and E.~Grave, ``Leveraging passage retrieval with generative models
+  for open domain question answering,'' {\em arXiv preprint arXiv:2007.01282},
+  2020.
+
+\bibitem{borgeaud2022improving}
+S.~Borgeaud, A.~Mensch, J.~Hoffmann, T.~Cai, E.~Rutherford, K.~Millican, G.~B.
+  V.~D. Driessche, J.-B. Lespiau, B.~Damoc, A.~Clark, and et~al., ``Improving
+  language models by retrieving from trillions of tokens,'' in {\em
+  International conference on machine learning}, pp.~2206--224, 2022.
+
+\bibitem{oguz2020unikqa}
+B.~Oguz, X.~Chen, V.~Karpukhin, S.~Peshterliev, D.~Okhonko, M.~Schlichtkrull,
+  S.~Gupta, Y.~Mehdad, and S.~Yih, ``Unik-qa: Unified representations of
+  structured and unstructured knowledge for open-domain question answering,''
+  {\em arXiv preprint arXiv:2012.14610}, 2020.
+
+\bibitem{li2021knowledge}
+Y.~Li, B.~Peng, Y.~Shen, Y.~Mao, L.~Liden, Z.~Yu, and J.~Gao,
+  ``Knowledge-grounded dialogue generation with a unified knowledge
+  representation,'' {\em arXiv preprint arXiv:2112.07924}, 2021.
+
+\bibitem{weijia2023replug}
+S.~Weijia, M.~Sewon, Y.~Michihiro, S.~Minjoon, J.~Rich, L.~Mike, and et~al.,
+  ``Replug: Retrieval-augmented black-box language models,'' {\em arXiv
+  preprint arXiv:2301.12652}, 2023.
+
+\bibitem{berant2013semantic}
+J.~Berant, A.~Chou, R.~Frostig, and P.~Liang, ``Semantic parsing on freebase
+  from question-answer pairs,'' in {\em Proceedings of the 2013 conference on
+  empirical methods in natural language processing}, pp.~1533--1544, 2013.
+
+\bibitem{wang2021retrieval}
+Z.~Wang, P.~Ng, R.~Nallapati, and B.~Xiang, ``Retrieval, re-ranking and
+  multi-task learning for knowledge-base question answering,'' in {\em
+  Proceedings of the 16th Conference of the European Chapter of the Association
+  for Computational Linguistics: Main Volume}, pp.~347--357, 2021.
+
+\bibitem{baek2023direct}
+J.~Baek, A.~F. Aji, J.~Lehmann, and S.~J. Hwang, ``Direct fact retrieval from
+  knowledge graphs without entity linking,'' {\em arXiv preprint
+  arXiv:2305.12416}, 2023.
+
+\bibitem{wang2024knowledge}
+Y.~Wang, N.~Lipka, R.~A. Rossi, A.~Siu, R.~Zhang, and T.~Derr, ``Knowledge
+  graph prompting for multi-document question answering,'' in {\em Proceedings
+  of the AAAI Conference on Artificial Intelligence}, vol.~38,
+  pp.~19206--19214, 2024.
+
+\bibitem{microsoftGraphRAG}
+D.~Edge, H.~Trinh, N.~Cheng, J.~Bradley, A.~Chao, A.~Mody, S.~Truitt, and
+  J.~Larson, ``From local to global: A graph rag approach to query-focused
+  summarization,'' {\em Microsoft Research}, 2024.
+
+\bibitem{HybridRAG2024}
+B.~Sarmah, B.~Hall, R.~Rao, S.~Patel, S.~Pasquali, and D.~Mehta, ``Hybridrag:
+  Integrating knowledge graphs and vector retrieval augmented generation for
+  efficient information extraction,'' {\em arXiv preprint arXiv:2408.04948},
+  2024.
+
+\bibitem{tog2_2024}
+S.~Ma, C.~Xu, X.~Jiang, M.~Li, H.~Qu, C.~Yang, J.~Mao, and J.~Guo,
+  ``Think-on-graph 2.0: Deep and faithful large language model reasoning with
+  knowledge-guided retrieval augmented generation,'' {\em IDEA Research,
+  International Digital Economy Academy}, 2024.
+
+\bibitem{tog_2024}
+J.~Sun, C.~Xu, L.~Tang, S.~Wang, C.~Lin, Y.~Gong, L.~M. Ni, H.-Y. Shum, and
+  J.~Guo, ``Think-on-graph: Deep and responsible reasoning of large language
+  model on knowledge graph,'' {\em arXiv preprint arXiv:2407.10805}, 2024.
+
+\end{thebibliography}

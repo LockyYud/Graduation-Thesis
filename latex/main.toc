@@ -1,0 +1,45 @@
+\contentsline {chapter}{Abstract}{1}{chapter*.1}%
+\babel@toc {vietnamese}{}\relax 
+\contentsline {chapter}{Table of Contents}{2}{section*.2}%
+\contentsline {chapter}{Bảng viết tắt thuật ngữ}{4}{section*.3}%
+\contentsline {chapter}{\numberline {1}Đặt vấn đề}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Bối cảnh}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Mục đích và câu hỏi nghiên cứu}{3}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Đề xuất và phương pháp}{4}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Cấu trúc của khóa luận}{5}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Cơ sở lý thuyết}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Chatbot}{6}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Định nghĩa}{6}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Góc nhìn tổng quan về tác nhân đối thoại}{7}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Phân loại ý định}{7}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Quản lý tri thức}{7}{subsection.2.1.4}%
+\contentsline {subsection}{\numberline {2.1.5}Đánh giá hiệu suất}{8}{subsection.2.1.5}%
+\contentsline {section}{\numberline {2.2}Mô hình ngôn ngữ lớn}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Truy xuất thông tin}{9}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Tạo tăng cường truy xuất}{10}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}RAG truyền thống dựa trên truy xuất cơ sở dữ liệu vector}{10}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Tạo sinh tăng cường truy xuất dựa trên đồ thị}{12}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}RAG kết hợp đồ thị tri thức và văn bản}{14}{subsection.2.4.3}%
+\contentsline {chapter}{\numberline {3}Đề xuất phương pháp cải thiện khả năng trả lời của Chatbot thông qua sử dụng mô hình RAG tích hợp với truy xuất đồ thị tri thức}{16}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Xây dựng đồ thị tri thức, cơ sở dữ liệu từ những tài liệu được cung cấp}{16}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Xây dựng đồ thị tri thức từ tài liệu}{17}{subsection.3.1.1}%
+\contentsline {paragraph}{Tri thức trích xuất:}{17}{paragraph*.5}%
+\contentsline {paragraph}{Cải thiện tri thức:}{17}{paragraph*.6}%
+\contentsline {subsection}{\numberline {3.1.2}Xây dựng cây tài liệu từ tài liệu}{18}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Mô hình RAG tích hợp truy xuất, suy luận đồ thị tri thức với truy xuất cơ sở dữ liệu vector}{18}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Khởi tạo}{18}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Khám phá tri thức}{19}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}Nâng cao truy xuất đồ thị thông qua ngữ cảnh:}{19}{subsubsection.3.2.2.1}%
+\contentsline {paragraph}{Tìm kiếm quan hệ liên quan (Relation Exploration):}{19}{paragraph*.7}%
+\contentsline {paragraph}{Cắt giảm các quan hệ (Relation Prune):}{19}{paragraph*.8}%
+\contentsline {paragraph}{Khám phá thực thể (Entity Discovery):}{20}{paragraph*.9}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}Truy xuất ngữ cảnh thông qua hướng dẫn từ tri thức:}{20}{subsubsection.3.2.2.2}%
+\contentsline {paragraph}{Truy xuất ngữ cảnh, đoạn văn dựa trên các thực thể:}{20}{paragraph*.10}%
+\contentsline {paragraph}{Cắt giảm thực thể (Entity Prune):}{21}{paragraph*.11}%
+\contentsline {subsection}{\numberline {3.2.3}Suy luận từ tri thức kết hợp}{21}{subsection.3.2.3}%
+\contentsline {chapter}{\numberline {4}Thực nghiệm}{22}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Dữ liệu thực nghiệm}{22}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Thiết lập thực nghiệm}{22}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Số liệu đánh giá}{22}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Kết quả thực nghiệm}{22}{section.4.4}%
+\contentsline {chapter}{References}{23}{chapter*.12}%

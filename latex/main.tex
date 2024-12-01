@@ -1,0 +1,126 @@
+\documentclass[12pt, a4paper]{report}
+
+% Encoding and Vietnamese support
+\usepackage[T5]{fontenc}     % Support for Vietnamese characters
+\usepackage[utf8]{inputenc}  % Input encoding (UTF-8 is standard for Vietnamese)
+\usepackage[vietnamese]{babel} % Vietnamese language support
+\usepackage{cite} 
+\usepackage{graphicx}
+\usepackage{nameref}
+\usepackage{multicol}
+\usepackage[numbers]{natbib}
+% Optional: Use a more readable font (Times)
+% set font, font size and spacing
+\usepackage{times}
+\usepackage{scrextend}
+\renewcommand{\baselinestretch}{1.3}
+
+% section spacing
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{0.5\baselineskip}{0.2\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.4\baselineskip}{0.2\baselineskip}
+% setup page layout
+\usepackage[a4paper,left=30mm,top=20mm,bottom=25mm,right=20mm,]{geometry}
+
+% Acronyms Auto
+\usepackage[nopostdot,toc,acronym,nomain,savewrites,nonumberlist]{glossaries}
+\makeglossaries
+\setacronymstyle{long-short}
+\loadglsentries[acronym]{FrontMatter/Acronyms}
+\setlength{\glsdescwidth}{0.7\linewidth}
+
+% Change indent
+% \usepackage{indentfirst} % indent also after section titles
+\setlength{\parindent}{1cm}
+\usepackage{enumitem}
+\setlist{leftmargin=1cm}
+
+% paragraph spacing
+\setlength{\parskip}{0.5em}
+
+% Change enumerate label
+\usepackage{enumitem}
+
+% Math equation
+\usepackage{amssymb}
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\renewcommand{\theequation}{\arabic{equation}}
+
+% \numberwithin{equation}{}
+
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{bigstrut}
+
+% Cover
+\usepackage{pdfpages}
+
+% Subfigure
+\usepackage{caption}
+\usepackage{subcaption}
+
+% pstricks fig
+\usepackage{epsfig}
+
+% Table of Contents
+\usepackage[hidelinks]{hyperref}
+% Uncomment if you want leading dot for chapter
+\usepackage{tocloft}
+% \renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}} % for parts
+% \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
+
+%preamble auto add toc
+\usepackage{tocbibind}
+
+%row color
+\usepackage{colortbl}
+
+% table fixed width column
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\title{Nghiên cứu xây dựng Chatbot dựa trên mô hình ngôn ngữ lớn và RAG}
+\author{Đỗ Minh Duy}
+\date{\today}
+
+% Document starts here
+\begin{document}
+
+%---------------------------------------------
+% Front matter
+%---------------------------------------------
+\include{FrontMatter/Abstract}
+
+% Show ToC and change title to Table of Contents
+\setcounter{secnumdepth}{3}
+\renewcommand{\contentsname}{Table of Contents}
+\tableofcontents
+% \maketitle
+% Show Acronyms and add it to ToC
+\printglossary[title={Bảng viết tắt thuật ngữ},type=acronym,style=long]
+\clearpage
+
+% % Show list of 
+% \listoffigures
+% \clearpage
+% \listoftables
+% \clearpage
+
+%--------------------------------------------- 
+% Main content
+%---------------------------------------------
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\include{Chapter1/chapter1}
+\include{Chapter2/chapter2}
+\include{Chapter3/chapter3}
+\include{Chapter4/chapter4}
+\include{Chapter5/chapter5}
+
+\bibliographystyle{ieeetr}
+\renewcommand\bibname{References}
+\bibliography{references}
+\end{document}

@@ -1,0 +1,62 @@
+\chapter{Đặt vấn đề}
+\label{chapter:introduction}
+% -------------------------------------------------------------------
+% BACKGROUND
+% -------------------------------------------------------------------
+\section{Bối cảnh}
+\label{section:background}
+
+Mặc dù việc tìm cách tạo ra một thứ có thể hiểu và giao tiếp với người tạo ra nó đã ăn sâu vào lịch sử loài người, Alan Turing được cho là người đầu tiên hình thành ý tưởng về chatbot vào năm 1950, khi ông đặt câu hỏi: “Máy móc có thể suy nghĩ không?”. Mô tả của Turing về hành vi của một cỗ máy thông minh gợi lên khái niệm chatbot mà chúng ta thường hiểu ngày nay.
+
+Chatbot đã phát triển cùng với sự gia tăng dần khả năng tính toán và những tiến bộ trong các công cụ và kỹ thuật xử lý ngôn ngữ tự nhiên (NLP). Việc triển khai chatbot đầu tiên, dựa nhiều vào các quy tắc ngôn ngữ và kỹ thuật khớp mẫu, đã được thực hiện vào năm 1966 với sự ra đời của ELIZA. Chatbot này có thể giao tiếp với người dùng thông qua chương trình khớp từ khóa, tìm kiếm các quy tắc chuyển đổi thích hợp để tái cấu trúc đầu vào và đưa ra phản hồi, tức là câu trả lời cho người dùng. ELIZA là một hệ thống mang tính bước ngoặt, khuyến khích nghiên cứu sâu hơn trong lĩnh vực này. Tuy nhiên, phạm vi hiểu biết của ELIZA bị giới hạn vì nó phụ thuộc rất ít vào việc nhận diện ngữ cảnh và các quy tắc khớp mẫu thường không linh hoạt để triển khai trong các lĩnh vực mới.
+
+Một bước tiến quan trọng trong sự phát triển của chatbot vào những năm 1980 là việc sử dụng trí tuệ nhân tạo (AI). A.L.I.C.E. (Artificial Intelligent Internet Computer Entity) dựa trên Ngôn ngữ Đánh dấu Trí tuệ Nhân tạo (AIML), một phần mở rộng của XML. AIML được phát triển đặc biệt để cho phép thêm kiến thức về mẫu hội thoại vào phần mềm của A.L.I.C.E., giúp mở rộng cơ sở dữ liệu kiến thức. Các đối tượng dữ liệu trong AIML bao gồm các chủ đề (topics) và danh mục (categories). Danh mục là đơn vị kiến thức cơ bản, bao gồm các quy tắc để khớp đầu vào của người dùng với đầu ra của chatbot. Đầu vào của người dùng được biểu diễn dưới dạng mẫu quy tắc, trong khi đầu ra của chatbot được xác định bằng mẫu quy tắc trong cơ sở kiến thức của A.L.I.C.E. Việc bổ sung các đối tượng dữ liệu mới vào AIML đại diện cho một cải tiến đáng kể so với các hệ thống khớp mẫu trước đây vì cơ sở dữ liệu kiến thức dễ dàng mở rộng. Hơn nữa, ChatScript, kế thừa từ AIML, cũng là công nghệ nền tảng đằng sau các chatbot đoạt giải Loebner. Ý tưởng chính của công nghệ này là khớp các đầu vào văn bản từ người dùng với một chủ đề, và mỗi chủ đề sẽ có các quy tắc cụ thể để tạo ra phản hồi. ChatScript đã mở ra một kỷ nguyên mới trong sự phát triển công nghệ chatbot, bắt đầu chuyển trọng tâm sang phân tích ngữ nghĩa và hiểu biết.
+
+Hạn chế chính của việc dựa vào các quy tắc và khớp mẫu trong chatbot là chúng phụ thuộc vào lĩnh vực, khiến chúng trở nên kém linh hoạt vì phải dựa vào các quy tắc được viết thủ công cho các lĩnh vực cụ thể. Với những tiến bộ gần đây trong các kỹ thuật học máy và công cụ xử lý ngôn ngữ tự nhiên, kết hợp với khả năng tính toán mạnh mẽ, các khung công việc và thuật toán mới đã được tạo ra để triển khai các chatbot “nâng cao” mà không phụ thuộc vào quy tắc và kỹ thuật khớp mẫu, đồng thời khuyến khích việc sử dụng chatbot trong thương mại. Việc áp dụng các thuật toán học máy vào chatbot đã được nghiên cứu, và những kiến trúc chatbot mới đã xuất hiện.
+
+Ứng dụng của chatbot đã mở rộng với sự xuất hiện của các thuật toán học sâu (Deep Learning). Một trong những ứng dụng mới và thú vị nhất là sự phát triển của các trợ lý cá nhân thông minh (như Alexa của Amazon, Siri của Apple, Google Assistant của Google, Cortana của Microsoft, và Watson của IBM). Các trợ lý cá nhân thông minh hoặc tác nhân hội thoại này thường có thể giao tiếp với người dùng thông qua giọng nói và thường được tích hợp trong điện thoại thông minh, đồng hồ thông minh, loa và màn hình gia đình chuyên dụng, thậm chí cả xe hơi. Ví dụ, khi người dùng nói một từ hoặc cụm từ đánh thức, thiết bị sẽ kích hoạt và trợ lý cá nhân thông minh bắt đầu lắng nghe. Thông qua việc Hiểu ngôn ngữ tự nhiên (NLU), trợ lý có thể hiểu các lệnh và trả lời yêu cầu của người dùng, thường bằng cách cung cấp thông tin (ví dụ: “Alexa, thời tiết hôm nay ở Los Angeles thế nào?” – “Ở Los Angeles, trời nắng và nhiệt độ là 75°F”), hoặc thực hiện các nhiệm vụ (ví dụ: “Ok Google, phát danh sách nhạc buổi sáng của tôi trên Spotify”). Tuy nhiên, nhiệm vụ hiểu ngôn ngữ của con người vẫn là một thách thức lớn vì sự đa dạng về giọng điệu, vùng miền, địa phương, và thậm chí là cách nói cá nhân.
+
+Tất cả các trợ lý cá nhân thông minh đều có các đặc điểm cốt lõi giống nhau về công nghệ sử dụng, giao diện người dùng và chức năng. Tuy nhiên, một số chatbot có tính cách phát triển hơn, và những chatbot phát triển nhất có thể cung cấp giải trí chứ không chỉ hỗ trợ các công việc hàng ngày; những chatbot này được gọi là chatbot xã hội. Một ví dụ thú vị về chatbot xã hội là XiaoIce của Microsoft. XiaoIce được thiết kế để trở thành một người bạn đồng hành lâu dài với người dùng, và để đạt được mức độ gắn kết cao, nó được xây dựng với tính cách, Chỉ số thông minh (IQ) và Chỉ số cảm xúc (EQ). Các khả năng IQ bao gồm mô hình hóa kiến thức và trí nhớ, hiểu hình ảnh và ngôn ngữ tự nhiên, lý luận, sáng tạo, và dự đoán. Đây là những thành phần quan trọng trong việc phát triển khả năng hội thoại, đáp ứng các nhu cầu cụ thể của người dùng và hỗ trợ họ. Khả năng quan trọng và phức tạp nhất là Core Chat, cho phép trò chuyện dài và trong các lĩnh vực mở với người dùng. Đồng cảm và kỹ năng xã hội là hai thành phần quan trọng của EQ. Công cụ hội thoại của XiaoIce sử dụng một trình quản lý hội thoại để theo dõi trạng thái của cuộc hội thoại và lựa chọn giữa Core Chat (thành phần tạo hội thoại mở) hoặc kỹ năng hội thoại để tạo phản hồi. Do đó, mô hình tích hợp cả khả năng truy xuất thông tin và khả năng tạo hội thoại.
+
+Trong bối cảnh các mô hình ngôn ngữ lớn (LLMs) ngày càng phát triển, việc áp dụng chúng vào trong giáo dục càng trở nên quan trọng và trở thành một trong các lĩnh vực quan trọng để nghiên cứu. Mặc dù khả năng của các Chatbot sử dụng LLMs như GPT, Gemini, Claude chứng tỏ được năng lực mạnh mẽ trong nhiệm vụ hỏi đáp (Q\&A downstream tasks) nhưng vẫn còn một số vấn đề nổi cộm còn tồn đọng khi vẫn phải đối mặt với những hạn chế cố hữu, chẳng hạn như ảo giác và các kiến thức được học đã lỗi thời cũng như chưa tập trung vào trong các miền tri thức cụ thể. Với khả năng mạnh mẽ của RAG trong việc cung cấp thông tin bổ trợ mới nhất và hữu ích, các Chatbot sử dụng Mô hình ngôn ngữ lớn tăng cường truy xuất (RA-LLM) đã xuất hiện để khai thác các cơ sở kiến thức bên ngoài và có thẩm quyền, thay vì chỉ dựa vào kiến thức bên trong của mô hình, nhằm tăng cường chất lượng tạo ra LLM.
+
+Mặc dù vậy RA-LLM vẫn còn có một số hạn chế như phụ thuộc vào các mô hình nhúng văn bản (Embedding models), độ chính xác của việc trích xuất thông tin, và khả năng trả lời các câu hỏi cần suy luận. Bởi vậy trong bài khóa luận này, tôi đề xuất một phương pháp cải tiến RAG trong cho nhiệm vụ hỏi đáp trong một lĩnh vực cụ thể với các tài liệu đã được chuẩn hóa bằng cách kết hợp truy xuất vector (vector retrieval) với truy xuất đồ thị tri thức (KGs retrieval) để nâng cao khả năng trả lời chính xác của Chatbot.
+
+\section{Mục đích và câu hỏi nghiên cứu}
+Bài khóa luận này nhằm mục tiêu trả lời một số câu hỏi nghiên cứu liên quan đến các phương pháp RAG (Retrieval-Augmented Generation) khác nhau, tập trung đặc biệt vào sự khác biệt trong cấu trúc cơ sở dữ liệu và ảnh hưởng của chúng đến việc tăng cường các mô hình ngôn ngữ lớn (LLMs) trong các nhiệm vụ trả lời câu hỏi. Bằng cách trả lời bốn câu hỏi nghiên cứu mà chúng tôi đã xây dựng, chúng tôi tìm cách xác định và so sánh những lợi thế của các hệ thống RAG dựa trên embedding và dựa trên đồ thị trong việc hỗ trợ các mô hình LLM hiện đại, đặc biệt trong lĩnh vực giáo dục, cụ thể trong bài khóa luận này này là môn Lịch Sử.
+
+Kết quả của nghiên cứu này cung cấp thêm những hiểu biết về các hệ thống RAG khác nhau và đưa ra hướng dẫn về cách xây dựng và đánh giá các hệ thống này cho lĩnh vực giáo dục trên các tập dữ liệu khác nhau. Các câu hỏi nghiên cứu bao gồm:
+
+\begin{enumerate}
+      \item Sự khác nhau giữa khả năng của cơ sở dữ liệu vector (Vector database) và đồ thị tri thức (Knowledge Graph) trong việc truy xuất, cung cấp thông tin cho mô hình ngôn ngữ lớn?
+
+            Câu hỏi này nhằm khám phá những ưu và nhược điểm của từng cấu trúc cơ sở dữ liệu trong việc tăng cường các mô hình ngôn ngữ. Trong khi cơ sở dữ liệu vectơ có khả năng xử lý dữ liệu phi cấu trúc, chúng tôi giả định rằng chúng không tận dụng được hết tiềm năng của tập dữ liệu, thường cung cấp thông tin rộng cho các câu hỏi tổng quát. Ngoài ra, chúng tôi giả định rằng cấu trúc phong phú và logic của cơ sở dữ liệu đồ thị cải thiện khả năng của LLM trong việc trả lời các câu hỏi phức tạp, yêu cầu nhiều quy tắc.
+
+      \item Hiện nay có những phương pháp truy xuất nổi trội và hiệu quả nào trong việc sử dụng cơ sở dữ liệu vector và đồ thị tri thức?
+
+            Bài khóa luận này cung cấp một cái nhìn tổng quan về các phương pháp truy xuất hiện có trong các hệ thống RAG sử dụng cơ sở dữ liệu vectơ hoặc đồ thị. Những thông tin thu được bao gồm các phương pháp cơ bản đóng vai trò làm tiêu chuẩn, từ đó có thể điều chỉnh dựa trên các tập dữ liệu và ứng dụng cụ thể.
+
+      \item Làm thế nào để kết hợp hai phương pháp cơ sở dữ liệu vector với cơ sở dữ liệu đồ thị để cải thiện độ chính xác của truy xuất dữ liệu?
+
+            Câu hỏi này đề cập đến thách thức trong việc kết hợp các cấu trúc cơ sở dữ liệu khác nhau và nhấn mạnh sự cần thiết phải đảm bảo tính đồng nhất trong thông tin chứa trong cơ sở dữ liệu vector và đồ thị.
+
+      \item Làm thế nào để đánh giá chất lượng trả lời câu hỏi một cách có hệ thống trên các hệ thống RAG dựa trên LLM khác nhau?
+
+            Mục tiêu là phát triển một framework đánh giá mạnh mẽ để đo lường hiệu suất của các triển khai RAG khác nhau, tập trung chủ yếu vào khả năng của chúng đối với các loại câu hỏi và mức độ phức tạp khác nhau. Hơn nữa, chúng tôi sẽ cung cấp các chỉ số hiệu quả để so sánh các câu trả lời được tạo bởi LLM với dữ liệu thực tế.
+
+\end{enumerate}
+
+\section{Đề xuất và phương pháp}
+\label{section:proposed_method}
+Phương án đề xuất tập trung vào việc kết hợp KGs và Vector database cho việc suy luận và trả lời các câu hỏi để nâng cao RAG nhằm giúp cho Chatbot trả lời chính xác hơn. Trong khóa luận này sẽ tập trung vào nâng cao khả năng trả lời các câu hỏi trắc nghiệm cũng như các câu hỏi tìm kiếm thông tin.
+
+Quy trình thực hiện khóa luận tốt nghiệp của tôi như sau:
+
+Dựa trên các nghiên cứu về phương pháp hiện có, một quá trình tìm hiểu và khám phá kiến thức lặp đi lặp lại sẽ được bắt đầu để trả lời các câu hỏi nghiên cứu được đưa ra. Quy trình này bao gồm việc xác định các tiêu chí đánh giá chất lượng của việc trích xuất các tài liệu liên quan, việc kết hợp sử dụng đồ thị tri thức với cơ sở dữ liệu vector., triển khai các thuật toán và chỉ số cần thiết, cũng như tối ưu các phương pháp trích xuất để giải quyết nhiệm vụ được giao một cách tối ưu.
+
+Điều quan trọng cần lưu ý là quy trình này mang tính chất lặp lại, vì các tiêu chí và thuộc tính, cũng như tác động của chúng đến chất lượng trích xuất, tìm kiếm văn bản và khả năng suy luận, tốc độ xử lý, sẽ được xác định thông qua việc đánh giá kết quả bằng cách sử dụng vào việc trả lời các câu hỏi, tìm kiếm thông tin thực tế. Bộ dữ liệu sử dụng sẽ bao gồm bộ sách giáo khoa, các đề thi tốt nghiệp THPT quốc gia.
+
+Hơn nữa, trong suốt quá trình lặp lại này, các phương pháp và thuật toán sử dụng sẽ được liên tục thay đổi và tối ưu hóa để đạt được kết quả tốt nhất có thể. Cuối cùng, quy trình và kết quả sẽ được xem xét, đánh giá một cách kỹ lưỡng và so sánh với nhau.
+
+\section{Cấu trúc của khóa luận}
+Chương 2 tiếp theo sẽ đề cập đến nền tảng lý thuyết liên quan đến công việc này, tập trung vào quy trình khám phá tri thức, các phương pháp học máy, trích xuất thông tin, các mô hình ngôn ngữ lớn. Sau khi mô tả phương pháp đã được áp dụng trong chương 3, dữ liệu thực nghiệm và kết quả tương ứng của các thí nghiệm sẽ được trình bày trong chương 4. Chương 5 sẽ thảo luận về kết quả, đánh giá một cách phê phán các phương pháp và cách tiếp cận đã thực hiện, cũng như xem xét tính hợp lệ và độ tin cậy của các kết quả được trình bày. Cuối cùng, chương 6 sẽ tóm tắt toàn bộ công việc và đưa ra triển vọng cho các nghiên cứu và mở rộng trong tương lai về chủ đề này.
