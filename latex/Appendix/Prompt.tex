@@ -1,0 +1,133 @@
+\chapter{PROMPT} % Appendix section title
+
+\begin{table}[ht]
+    \centering
+    \caption{Prompt cho tác vụ nhận diện thực thể}
+    \label{tab:ER_prompt}
+    \small{\begin{tabular}{p{0.98\textwidth}}
+            \toprule
+            \textbf{Prompt Nhận diện thực thể}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             \\
+            \midrule
+            \textbf{Bạn là} một người phân tích, cải thiện danh sách thuật ngữ, người phân tích các thuật ngữ từ đoạn văn bản được cung cấp, sử dụng lý thuyết phạm trù (category theory). Bạn sẽ được cung cấp một đoạn VĂN BẢN (được phân cách bởi \textasciigrave\textasciigrave\textasciigrave) và danh sách các thuật ngữ (được phân cách bởi \textasciigrave\textasciigrave\textasciigrave). Nhiệm vụ của bạn là phân tích và xem xét các thuật ngữ một cách khắt khe trong ngữ cảnh VĂN BẢN đó thì có phải thuật ngữ về '{concept.name}' dựa theo mô tả sau về thuật ngữ: {concept.description} để cải thiện danh sách thuật ngữ trở nên tổng quát. \\
+            \textbf{Nhiệm vụ:}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             \\
+            \textbf{Suy nghĩ 1:} Khi duyệt qua từng khái niệm, những khái niệm cùng chỉ về một ý nghĩa thì hãy gộp chúng lại thành một khái niệm suy nhất. Ví dụ:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          \\
+            \textbf{Suy nghĩ 2:} Khi duyệt qua từng câu, hãy suy nghĩ về ngữ cảnh trong câu để xác định các thuật ngữ được cung cấp thuộc phạm trù.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        \\
+            \textbf{Suy nghĩ 3:} Thuật ngữ nên chi tiết nhất có thể. Các thuật ngữ phải càng nguyên tử càng tốt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           \\
+            \bottomrule
+        \end{tabular}}
+\end{table}
+
+\begin{table}[ht]
+    \centering
+    \caption{Prompt cho tác vụ cắt giảm các quan hệ trong quá trình khám phá tri thức}
+    \label{tab:relation_prune_prompt}
+    \small{\begin{tabular}{p{0.98\textwidth}}
+            \toprule
+            \textbf{Prompt Cắt giảm các quan hệ trong quá trình khám phá tri thức}                                                                                                                                 \\
+            \midrule
+            \textbf{Nhiệm vụ:}                                                                                                                                                                                     \\
+            1. Cẩn thận xem xét câu hỏi được cung cấp.                                                                                                                                                             \\
+            2. Từ danh sách các quan hệ có sẵn cho thực thể tương ứng, chọn \% mà bạn cho là có khả năng liên kết với các thực thể có thể cung cấp thông tin liên quan nhất để giúp trả lời câu hỏi được cung cấp. \\
+            3. Đối với mỗi quan hệ được chọn, cung cấp điểm từ 0 đến 10 phản ánh mức độ hữu ích của nó trong việc trả lời câu hỏi, với 10 là hữu ích nhất.                                                         \\
+            4. Không thay đổi hoặc thêm vào danh sách các quan hệ đã cung cấp.                                                                                                                                     \\
+            5. Luôn luôn sử dụng \texttt{function\_call} được cung cấp.                                                                                                                                            \\
+            \textbf{Đầu vào theo định dạng dưới đây:}                                                                                                                                                              \\
+            \textbf{Câu hỏi:} [Nội dung câu hỏi]                                                                                                                                                                   \\
+            \textbf{Thực thể chính:} [Tên của thực thể]                                                                                                                                                            \\
+            \textbf{Danh sách mối quan hệ:} [Danh sách các quan hệ của thực thể để lựa chọn.]                                                                                                                      \\
+            \bottomrule
+        \end{tabular}}
+\end{table}
+
+
+\begin{table}[ht]
+    \centering
+    \caption{Prompt cho tác vụ cắt giảm tất cả các quan hệ cùng 1 lúc trong quá trình khám phá tri thức}
+    \label{tab:relation_prune_prompt_all}
+    \small{\begin{tabular}{p{0.98\textwidth}}
+            \toprule
+            \textbf{Prompt Cắt giảm tất cả các quan hệ cùng 1 lúc trong quá trình khám phá tri thức}                                                                                                               \\
+            \midrule
+            \textbf{Nhiệm vụ:}                                                                                                                                                                                     \\
+            1. Cẩn thận xem xét câu hỏi được cung cấp.                                                                                                                                                             \\
+            2. Từ danh sách các quan hệ có sẵn cho thực thể tương ứng, chọn \% mà bạn cho là có khả năng liên kết với các thực thể có thể cung cấp thông tin liên quan nhất để giúp trả lời câu hỏi được cung cấp. \\
+            3. Đối với mỗi quan hệ được chọn, cung cấp điểm từ 0 đến 10 phản ánh mức độ hữu ích của nó trong việc trả lời câu hỏi, với 10 là hữu ích nhất.                                                         \\
+            4. Không thay đổi hoặc thêm vào danh sách các quan hệ đã cung cấp.                                                                                                                                     \\
+            5. Luôn luôn sử dụng \texttt{function\_call} được cung cấp.                                                                                                                                            \\
+            \textbf{Đầu vào theo định dạng dưới đây:}                                                                                                                                                              \\
+            \textbf{Câu hỏi:} [Nội dung câu hỏi]                                                                                                                                                                   \\
+            \textbf{Danh sách thực thể và mối quan hệ} [Tên của thực thể]                                                                                                                                          \\
+            \hspace{1cm}\textbf{Tên thực thể:} [Danh sách các quan hệ của thực thể để lựa chọn.]                                                                                                                   \\
+            \hspace{1cm}\textbf{Danh sách mối quan hệ tương ứng:} [Danh sách các quan hệ của thực thể]                                                                                                             \\
+            \hspace{1cm}...                                                                                                                                                                                        \\
+            \bottomrule
+        \end{tabular}}
+\end{table}
+
+
+\begin{table}[ht]
+    \centering
+    \caption{Prompt cho tác vụ cắt giảm thực thể trong quá trình khám phá}
+    \label{tab:entity_prune_prompt}
+    \small{\begin{tabular}{p{0.98\textwidth}}
+            \toprule
+            \textbf{Prompt Cắt giảm thực thể trong quá trình khám phá}                                                                                                                                                                                          \\
+            \midrule
+            Bạn được cung cấp câu hỏi và danh sách các đường dẫn suy luận chứa các \textbf{BỘ 3} (triples) được truy xuất từ đồ thị tri thức, vui lòng chấm điểm mức độ liên quan của các \textbf{BỘ 3} (triples) cho việc trả lời câu hỏi theo thang điểm 100. \\
+            \textbf{Thực hiện suy luận theo hướng dẫn:}                                                                                                                                                                                                         \\
+            \textbf{Bước 1:} Đọc kỹ câu hỏi và xem xét cách trả lời câu hỏi.                                                                                                                                                                                    \\
+            \textbf{Bước 2:} Phân tích mức độ liên quan giữa \textbf{BỘ 3} và câu hỏi.                                                                                                                                                                          \\
+            \textbf{Bước 3:} Chấm điểm cho mức độ đóng góp thông tin để trả lời câu hỏi dựa trên \textbf{BỘ 3} đó. Đánh giá điểm một cách công tâm và chính xác.                                                                                                \\
+            \textbf{Đầu vào theo định dạng dưới đây:}                                                                                                                                                                                                           \\
+            \textbf{Câu hỏi:} [Nội dung câu hỏi]                                                                                                                                                                                                                \\
+            \textbf{Danh sách các đường dẫn duy luận:}                                                                                                                                                                                                          \\
+            \hspace{1cm}Đường dẫn 1: Nội dung đường dẫn suy luận với các \textbf{BỘ 3}                                                                                                                                                                          \\
+            \hspace{1cm}Đường dẫn 2: Nội dung đường dẫn suy luận với các \textbf{BỘ 3}                                                                                                                                                                          \\
+            \hspace{1cm}...                                                                                                                                                                                                                                     \\
+            \bottomrule
+        \end{tabular}}
+\end{table}
+
+
+
+\begin{table}[ht]
+    \centering
+    \caption{Prompt cho tác vụ suy luận câu trả lời}
+    \label{tab:reasoning_prompt}
+    \small{\begin{tabular}{p{0.98\textwidth}}
+            \toprule
+            \textbf{Prompt Suy luận câu trả lời}                                                                                                                                                                                                                                                                                                                                                         \\
+            \midrule
+            \textbf{Nhiệm vụ:}                                                                                                                                                                                                                                                                                                                                                                           \\
+            1. Đánh giá xem dựa vào các thông tin có trong đoạn văn bản có thể trả lời được câu hỏi hay không                                                                                                                                                                                                                                                                                            \\
+            2. Câu trả lời của bạn phải bắt đầu bằng 'Có' hoặc 'Không' và không giải thích gì thêm.                                                                                                                                                                                                                                                                                                      \\
+            3. Nếu \{Có\}, lưu ý rằng thực thể câu trả lời đã phân tích phải được đặt trong dấu ngoặc nhọn \{xxxxxx\}.                                                                                                                                                                                                                                                                                   \\
+            4. Nếu \{Không\}, điều đó có nghĩa là các tài nguyên này vô dụng hoặc chỉ cung cấp các manh mối có ích nhưng không đủ để trả lời câu hỏi một cách chắc chắn, hãy xác định các khía cạnh còn thiếu và tinh chỉnh truy vấn tìm kiếm để nhắm cụ thể vào thông tin cần thiết để hoàn thiện câu trả lời. Truy vấn tìm kiếm được nhắm mục tiêu cũng phải được đặt trong dấu ngoặc nhọn \{xxxxxx\}. \\
+            \textbf{Đầu vào theo định dạng dưới đây:}                                                                                                                                                                                                                                                                                                                                                    \\
+            \textbf{Câu hỏi:} [Nội dung câu hỏi]                                                                                                                                                                                                                                                                                                                                                         \\
+            \textbf{Manh mối:} [Nội dung manh mối để tìm kiếm thông tin]                                                                                                                                                                                                                                                                                                                                 \\
+            \textbf{Các đoạn văn bản:}                                                                                                                                                                                                                                                                                                                                                                   \\
+            \hspace{1cm}1. Nội dung đoạn văn bản 1                                                                                                                                                                                                                                                                                                                                                       \\
+            \hspace{1cm}2. Nội dung đoạn văn bản 2                                                                                                                                                                                                                                                                                                                                                       \\
+            \hspace{1cm}...Tiếp tục theo cùng cách cho các đoạn văn bản                                                                                                                                                                                                                                                                                                                                  \\
+            \textbf{Ví dụ:}                                                                                                                                                                                                                                                                                                                                                                              \\
+            \textbf{Câu hỏi:} Nam tước Yamaji Motoharu là một tướng lĩnh trong Quân đội Đế quốc Nhật Bản đầu thế kỷ, thuộc về Đế quốc nào?                                                                                                                                                                                                                                                               \\
+            \hspace{1cm}1. Nội dung đoạn văn bản 1                                                                                                                                                                                                                                                                                                                                                       \\
+            \hspace{1cm}2. Nội dung đoạn văn bản 2                                                                                                                                                                                                                                                                                                                                                       \\
+            \textbf{Trả lời:} Có. Dựa trên manh mối, các đoạn văn ngữ cảnh thu thập được và kiến thức của tôi, Nam tước Yamaji Motoharu, người là một tướng lĩnh trong Quân đội Đế quốc Nhật Bản đầu thế kỷ, thuộc về Đế quốc Nhật Bản. Do đó, câu trả lời cho câu hỏi là \{Đế quốc Nhật Bản\}.                                                                                                          \\
+            \bottomrule
+        \end{tabular}}
+\end{table}
+
+\begin{table}[ht]
+    \centering
+    \caption{Prompt cho tác vụ dự đoán các manh mối}
+    \label{tab:requery_prompt}
+    \small{\begin{tabular}{p{0.98\textwidth}}
+            \toprule
+            \textbf{Prompt để dự đoán các manh mối}                                                                                                                                                                                                                                                     \\
+            \midrule
+            Dựa trên một câu hỏi và một số kiến thức đã thu thập được cho đến nay, hãy dự đoán bằng chứng bổ sung cần được tìm thấy để trả lời câu hỏi hiện tại, sau đó đưa ra một truy vấn phù hợp để tìm kiếm bằng chứng tiềm năng này. Lưu ý rằng truy vấn phải được đặt trong dấu ngoặc nhọn {xxx}. \\
+            \bottomrule
+        \end{tabular}}
+\end{table}

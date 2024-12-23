@@ -1,5 +1,55 @@
 \begin{thebibliography}{10}
 
+\bibitem{Turing1950-TURCMA}
+A.~Turing, ``Computing machinery and intelligence,'' {\em Mind}, vol.~59,
+  no.~October, pp.~433--60, 1950.
+
+\bibitem{weizenbaum1966eliza}
+J.~Weizenbaum, ``Eliza a computer program for the study of natural language
+  communication between man and machine,'' {\em Commun. ACM}, vol.~9,
+  pp.~36--45, Jan. 1966.
+
+\bibitem{shum2018elizaxiaoicechallengesopportunities}
+H.-Y. Shum, X.~He, and D.~Li, ``From eliza to xiaoice: Challenges and
+  opportunities with social chatbots,'' 2018.
+
+\bibitem{zemcik2019chatbots}
+T.~Zemčík, ``A brief history of chatbots,'' {\em DEStech Transactions on
+  Computer Science and Engineering}, 2019.
+
+\bibitem{cahn2017chatbot}
+J.~Cahn, {\em CHATBOT: Architecture, Design, \& Development}.
+\newblock Ph.d. thesis, University of Pennsylvania, School of Engineering and
+  Applied Science, 2017.
+
+\bibitem{bradesko2012survey}
+L.~Bradeško and D.~Mladenic, ``A survey of chatbot systems through a loebner
+  prize competition,'' in {\em Proceedings of Slovenian Language Technologies
+  Society Eighth Conference of Language Technologies}, (Ljubljana, Slovenia),
+  pp.~34--37, Institut Jožef Stefan, 2012.
+
+\bibitem{wilcox2014winning}
+B.~Wilcox, ``Winning the loebner’s,'' 2014.
+\newblock Accessed on: 26/11/2020.
+
+\bibitem{abushawar2015alice}
+B.~AbuShawar and E.~Atwell, ``Alice chatbot: Trials and outputs,'' {\em Comput.
+  Y Sist.}, vol.~19, p.~2326, 2015.
+
+\bibitem{dormehl2018xiaoi}
+L.~Dormehl, ``Microsoft’s friendly xiaoice a.i can figure out what you
+  want—before you ask,'' 2018.
+\newblock Accessed on: 05/05/2021.
+
+\bibitem{spencer2018xiaoi}
+G.~Spencer, ``Much more than a chatbot: China’s xiaoice mixes ai with
+  emotions and wins over millions of fans.'' Microsoft Asia News Center, 2018.
+\newblock Accessed on: 29/06/2021.
+
+\bibitem{zhou2019xiaoi}
+L.~Zhou, J.~Gao, D.~Li, and H.~Shum, ``The design and implementation of
+  xiaoice, an empathetic social chatbot,'' {\em arXiv}, 2019.
+
 \bibitem{radford2018improving}
 A.~Radford, K.~Narasimhan, T.~Salimans, I.~Sutskever, and et~al., ``Improving
   language understanding by generative pre-training,'' {\em arXiv preprint},
@@ -189,5 +239,28 @@ S.~Ma, C.~Xu, X.~Jiang, M.~Li, H.~Qu, C.~Yang, J.~Mao, and J.~Guo,
 J.~Sun, C.~Xu, L.~Tang, S.~Wang, C.~Lin, Y.~Gong, L.~M. Ni, H.-Y. Shum, and
   J.~Guo, ``Think-on-graph: Deep and responsible reasoning of large language
   model on knowledge graph,'' {\em arXiv preprint arXiv:2407.10805}, 2024.
+
+\bibitem{BGE_M3_Embedding2024}
+R.~Rao, B.~Hall, S.~Pasquali, S.~Patel, B.~Sarmah, and D.~Mehta, ``Bge
+  m3-embedding: Multi-lingual, multi-functionality, multi-granularity text
+  embeddings through self-knowledge distillation,'' {\em arXiv preprint
+  arXiv:2402.03216}, 2024.
+
+\bibitem{wang2020minilmdeepselfattentiondistillation}
+W.~Wang, F.~Wei, L.~Dong, H.~Bao, N.~Yang, and M.~Zhou, ``Minilm: Deep
+  self-attention distillation for task-agnostic compression of pre-trained
+  transformers,'' 2020.
+
+\bibitem{rajpurkar-etal-2016-squad}
+P.~Rajpurkar, J.~Zhang, K.~Lopyrev, and P.~Liang, ``{SQuAD}: 100,000+ questions
+  for machine comprehension of text,'' in {\em Proceedings of the 2016
+  Conference on Empirical Methods in Natural Language Processing} (J.~Su,
+  K.~Duh, and X.~Carreras, eds.), (Austin, Texas), pp.~2383--2392, Association
+  for Computational Linguistics, Nov. 2016.
+
+\bibitem{article_cohens_kappa}
+M.~McHugh, ``Interrater reliability: The kappa statistic,'' {\em Biochemia
+  medica : časopis Hrvatskoga društva medicinskih biokemičara / HDMB},
+  vol.~22, pp.~276--82, 10 2012.
 
 \end{thebibliography}

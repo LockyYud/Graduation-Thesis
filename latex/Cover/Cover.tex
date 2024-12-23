@@ -1,0 +1,72 @@
+% Định nghĩa lệnh để tạo khung trang
+\newcommand{\pageframe}{
+    \begin{tikzpicture}[remember picture,overlay]
+        % Khung ngoài - theo đúng lề
+        \draw[line width=2pt]
+        ([shift={(0,0)}]current page.north west)
+        ++ (2.5cm,-2cm)
+        rectangle
+        ++ (-2.5cm+\paperwidth-1.5cm,2cm-\paperheight+2cm);
+
+        % Khung trong - cách khung ngoài 0.15cm
+        \draw[line width=1pt]
+        ([shift={(0,0)}]current page.north west)
+        ++ (2.5cm+0.15cm,-2cm-0.15cm)
+        rectangle
+        ++ (-2.5cm+\paperwidth-1.5cm-0.3cm,2cm-\paperheight+2cm+0.3cm);
+
+        % Họa tiết góc - nối các góc của hai khung
+        \draw[line width=1pt] ([shift={(0,0)}]current page.north west)
+        ++ (2.5cm,-2cm) -- ++(0.15cm,-0.15cm);
+        \draw[line width=1pt] ([shift={(0,0)}]current page.north east)
+        ++ (-1.5cm,-2cm) -- ++(-0.15cm,-0.15cm);
+        \draw[line width=1pt] ([shift={(0,0)}]current page.south west)
+        ++ (2.5cm,2cm) -- ++(0.15cm,0.15cm);
+        \draw[line width=1pt] ([shift={(0,0)}]current page.south east)
+        ++ (-1.5cm,2cm) -- ++(-0.15cm,0.15cm);
+    \end{tikzpicture}
+}
+
+% Định nghĩa lệnh để tạo trang bìa
+\newcommand{\makecover}[1]{
+    \thispagestyle{empty}
+    \pageframe
+    \begin{center}
+        \large\textbf{ĐẠI HỌC QUỐC GIA HÀ NỘI}\\[0.2cm]
+        \large\textbf{TRƯỜNG ĐẠI HỌC CÔNG NGHỆ}\\[1cm]
+
+        \ifdim\pdfstrcmp{#1}{HỆ CHÍNH QUY}pt=0pt
+        \vspace{1cm}
+        \else
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.25\linewidth]{Cover/Fig/uet.png}
+            \label{fig:enter-label}
+        \end{figure}
+        \fi
+
+        \large\textbf{Đỗ Minh Duy}\\[1cm]
+
+        \Large\textbf{NGHIÊN CỨU XÂY DỰNG CHATBOT}\\[0.3cm]
+        \Large\textbf{DỰA TRÊN MÔ HÌNH NGÔN NGỮ LỚN VÀ RAG}\\[2cm]
+
+        \large\textbf{KHÓA LUẬN TỐT NGHIỆP ĐẠI HỌC #1}\\
+        \large\textbf{Ngành: Công nghệ thông tin}\\[3cm]
+    \end{center}
+
+    \ifdim\pdfstrcmp{#1}{HỆ CHÍNH QUY}pt=0pt
+        \begin{flushleft}
+            \large\textbf{Cán bộ hướng dẫn: PGS.TS. Nguyễn Việt Hà}\\[3cm]
+
+            \large\textbf{Cán bộ đồng hướng dẫn: TS. Bùi Ngọc Thăng}\\[2.5cm]
+        \end{flushleft}
+    \else
+        \vspace*{\fill}
+    \fi
+
+    \vfill\begin{center}
+        {\fontsize{12}{16}\selectfont
+            \textbf{Hà Nội - 2024}}
+    \end{center}
+    \clearpage
+}
