@@ -1,0 +1,75 @@
+\chapter{PSEUDOCODE} % Appendix section title
+
+\begin{algorithm}
+    \caption{Phương pháp RAG tích hợp truy xuất, suy luận đồ thị tri thức với truy xuất cơ sở dữ liệu vector}
+    \KwIn{Question $q$}
+    \KwOut{Answer $Ans$}
+    \SetKwProg{Fn}{Function}{:}{}
+    \SetKwFunction{LLM}{LLM}
+    \SetKwFunction{DRM}{DRM}
+    \SetKwFunction{Prompt}{Prompt}
+    \SetKwFunction{Tail}{Tail}
+    \SetKwFunction{Edge}{Edge}
+    \SetKwFunction{LinkedDoc}{LinkedDoc}
+
+    \SetKwBlock{Init}{Initialization}{}
+    \SetKwBlock{KnowledgeGuided}{Knowledge-guided Graph Search}{}
+    \SetKwBlock{ReasoningKnowledge}{Reasoning Knowledge}{}
+
+    \Init{
+    $Clues \gets$ \textbf{Null}\;
+    $\text{Topic entities }\mathcal{E}^0_{\text{topic}} \gets$ \text{Using LLM to extract topic entities}\;
+    $\text{Reasoning paths }\mathcal{P} \gets$ \text{Start with each entity in $\mathcal{E}^0_{\text{topic}}$}\;
+    $Ctx^0 \gets$ \text{Retrieve top-$k$ documents related to $\mathcal{E}^0_{\text{topic}}$} using DRM\;
+    \text{Prompt LLM evaluates the sufficiency of knowledge to answer q:}
+    $PROMPT_{rs}(q, Ctx^0, Clues^0)$\;
+    \If{Information is sufficient}{
+        Output $Ans$\;
+        \Return\;
+    }
+    \Else{
+        Output $Clues^0$ \text{(Using LLM to rewrite $q$ for retrieving potential evidence)}\;
+    }
+    }
+
+\end{algorithm}
+
+\begin{algorithm}
+    \caption{Phương pháp RAG tích hợp truy xuất, suy luận đồ thị tri thức với truy xuất cơ sở dữ liệu vector (tiếp tục)}
+
+
+    \SetKwBlock{KnowledgeGuided}{Knowledge-guided Graph Search}{}
+    \SetKwBlock{ReasoningKnowledge}{Reasoning Knowledge}{}
+    \For{$i = 1$ \KwTo $I$}{
+    \KnowledgeGuided{
+    \ForEach{$p_n \in \mathcal{P}$ \text{with} $e^{i-1}_n$ \text{is the tail entity of} $p_n$}{
+    Find relations $\Edge(e^{i-1}_n) = \{(r^i_{n,m}, h_m)\}$\;
+    }
+    \text{Use LLM to select and score relations then add to corresponding
+        $p$}
+    $\mathcal{P} \gets PROMPT_\emph{RP\_all} (q, {\{p_n, Edge(e^{I-1}_n)\}}^N_{n=1})$\;
+
+    \ForEach{$(r^i_{n,m} \in R^i)$}{
+    Find connected entities $c^i_{n,m} = \Tail(e^i_n, (r^i_{n,m}, h_m))$\;
+    }
+    Get all related chunks $Chunk_\text{related}^I = \{\LinkedDoc(c^i_{n,m})\}^N_{n=1}$\;
+
+    \ForEach{$c^i_{n,m}\in Chunk_\text{related}^I$} {
+    Compute relevance score
+    }
+    $Ctx^i \gets$ \text{Select top-$k$ chunks with highest relevance score}\;
+    $\mathcal{P} \gets$ \text{Select top-$N$ reasoning paths $PROMPT_\emph{EP}(Ctx, q, p_n, \mathcal{C}^{I - 1}_n)$}\;
+    }
+    \ReasoningKnowledge{
+        \text{Prompt LLM evaluates sufficiency of knowledge to answer q:}
+        $ PROMPT_\emph{RS}(q, \mathcal{P}, Clue^{I-1}, Ctx)$
+        \If{Information is sufficient}{
+            Output $Ans$\;
+            \Return\;
+        }
+        \Else{
+            Output $Clues^0$ \text{(Using LLM to rewrite $q$ for retrieving potential evidence)}\;
+        }
+    }
+    }
+\end{algorithm}

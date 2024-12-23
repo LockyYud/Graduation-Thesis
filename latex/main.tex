@@ -8,11 +8,13 @@
 \usepackage{graphicx}
 \usepackage{nameref}
 \usepackage{multicol}
-\usepackage[numbers]{natbib}
+\usepackage{booktabs}
 % Optional: Use a more readable font (Times)
 % set font, font size and spacing
 \usepackage{times}
 \usepackage{scrextend}
+\usepackage{lmodern} % Recommended for better font rendering
+\renewcommand\normalsize{\fontsize{13}{16}\selectfont}
 \renewcommand{\baselinestretch}{1.3}
 
 % section spacing
@@ -20,12 +22,13 @@
 \titlespacing*{\section}{0pt}{0.5\baselineskip}{0.2\baselineskip}
 \titlespacing*{\subsection}{0pt}{0.4\baselineskip}{0.2\baselineskip}
 % setup page layout
-\usepackage[a4paper,left=30mm,top=20mm,bottom=25mm,right=20mm,]{geometry}
+% \usepackage[a4paper,left=30mm,top=20mm,bottom=25mm,right=20mm,]{geometry}
 
 % Acronyms Auto
-\usepackage[nopostdot,toc,acronym,nomain,savewrites,nonumberlist]{glossaries}
+% \usepackage[nopostdot,toc,acronym,nomain,savewrites,nonumberlist]{glossaries}
+\usepackage[acronym,automake]{glossaries-extra}  % add automake here
 \makeglossaries
-\setacronymstyle{long-short}
+\setabbreviationstyle[acronym]{long-short}
 \loadglsentries[acronym]{FrontMatter/Acronyms}
 \setlength{\glsdescwidth}{0.7\linewidth}
 
@@ -38,15 +41,29 @@
 % paragraph spacing
 \setlength{\parskip}{0.5em}
 
+\usepackage{tocloft}
+
+\renewcommand{\cftfigpresnum}{Hình~}
+\renewcommand{\cftfigaftersnum}{:}
+\setlength{\cftfignumwidth}{5em}
+
+\renewcommand{\cfttabpresnum}{Bảng~}
+\renewcommand{\cfttabaftersnum}{:}
+\setlength{\cfttabnumwidth}{5em}
 % Change enumerate label
 \usepackage{enumitem}
+% table
+\usepackage{multirow}
 
 % Math equation
 \usepackage{amssymb}
 \usepackage{amsmath}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \renewcommand{\theequation}{\arabic{equation}}
-
+% \usepackage{algorithm}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+% \usepackage[noend]{algorithmic}
+\usepackage[title]{appendix}
 % \numberwithin{equation}{}
 
 \usepackage{multirow}
@@ -55,7 +72,9 @@
 
 % Cover
 \usepackage{pdfpages}
-
+\usepackage[left=3cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{tikz}
+\usepackage{float}
 % Subfigure
 \usepackage{caption}
 \usepackage{subcaption}
@@ -71,12 +90,13 @@
 % \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}} % for chapters
 
 %preamble auto add toc
-\usepackage{tocbibind}
+\usepackage[nottoc]{tocbibind}
 
 %row color
 \usepackage{colortbl}
 
 % table fixed width column
+\usepackage{tabularx}
 \usepackage{array}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -88,26 +108,37 @@
 
 % Document starts here
 \begin{document}
-
+%---------------------------------------------
+% Cover page
+%---------------------------------------------
+\include{Cover/Cover}
+\makecover{CHÍNH QUY}
+\makecover{HỆ CHÍNH QUY}
+\pagenumbering{gobble}
 %---------------------------------------------
 % Front matter
 %---------------------------------------------
-\include{FrontMatter/Abstract}
-
+{
+    \let\addcontentsline=\null
+    \include{FrontMatter/Abstract}
+    \include{FrontMatter/ThankWord}
+    \include{FrontMatter/Ensure}
+}
 % Show ToC and change title to Table of Contents
 \setcounter{secnumdepth}{3}
-\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\contentsname}{Mục lục}
 \tableofcontents
 % \maketitle
 % Show Acronyms and add it to ToC
-\printglossary[title={Bảng viết tắt thuật ngữ},type=acronym,style=long]
+\printglossary[title={Bảng viết tắt thuật ngữ},type=acronym]
 \clearpage
 
-% % Show list of 
-% \listoffigures
-% \clearpage
-% \listoftables
-% \clearpage
+% Show list of 
+\listoffigures
+\clearpage
+\renewcommand{\contentsname}{}
+\listoftables
+\clearpage
 
 %--------------------------------------------- 
 % Main content
@@ -121,6 +152,12 @@
 \include{Chapter5/chapter5}
 
 \bibliographystyle{ieeetr}
-\renewcommand\bibname{References}
+\renewcommand\bibname{Tài liệu tham khảo}
 \bibliography{references}
+\appendix
+\include{Appendix/Pseudocode}
+\include{Appendix/Prompt}
+\include{Appendix/Exam}
+
+
 \end{document}

@@ -1,0 +1,90 @@
+\begin{table}[ht]
+    \centering
+    \caption{Cấu hình phần cứng sử dụng trong nghiên cứu}
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \textbf{Môi trường} & \textbf{Cấu hình}     & \textbf{Mục đích sử dụng}     \\ \hline
+        Kaggle              & 10 instance với       & Xây dựng đồ thị tri thức      \\
+                            & NVIDIA Tesla T4 GPU   &                               \\
+                            & (16GB VRAM/instance)  &                               \\ \hline
+        Google Colab Pro    & NVIDIA A100-SXM4-40GB & Triển khai hệ thống \gls{rag} \\
+                            &                       & chính                         \\ \hline
+    \end{tabular}
+    \label{tab:hardware}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[ht]
+    \centering
+    \caption{So sánh hiệu suất của các phương pháp khác nhau với GPT-4o-mini.}
+    \small{
+        \begin{tabular}{lcccc}
+            \toprule
+            Baseline type  & \multicolumn{4}{c}{Metric}                                  \\
+            \cmidrule(lr){2-5}
+                           & Exact Match                & F1 score & Cohen’s Kappa & KDA \\
+            \midrule
+            LLM directly   & 89.41                      & 0.8934   & 17.9          & -   \\
+            LLM with CoT   & 90.04                      & 0.8995   & 38.6          & -   \\
+            Text-based RAG & 82.07                      & 0.8213   & -             & -   \\
+            Proposed       & 92.04                      & 0.9189   & -             & -   \\
+            \bottomrule
+        \end{tabular}}
+
+    \label{tab:baseline_comparison}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[ht]
+    \centering
+    \caption{So sánh hiệu suất giữa câu trả lời trực tiếp và phương pháp đề xuất với các mô hình khác nhau. Các giá trị trong ngoặc đơn biểu thị phần trăm cải thiện.}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{lcccccccc}
+            \toprule
+                          & \multicolumn{2}{c}{GPT-4o} & \multicolumn{2}{c}{GPT-4o-mini} & \multicolumn{2}{c}{Llama3.3-70B} & \multicolumn{2}{c}{Mistral-8x7B}                                         \\
+            \cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9}
+                          & Direct                     & Proposed                        & Direct                           & Proposed                         & Direct & Proposed & Direct & Proposed \\
+            \midrule
+            Exact Match   & 89.65                      & 92.07                           & 89.41                            & 92.04                            & 77.53  & -        & -      & -        \\
+            F1 Score      & 0.8962                     & 0.9192                          & 0.8934                           & 0.9189                           & 0.7844 & -        & -      & -        \\
+            KDA           & -                          & -                               & -                                & -                                & -      & -        & -      & -        \\
+            Cohen’s Kappa & -                          & -                               & -                                & -                                & -      & -        & -      & -        \\
+            \bottomrule
+        \end{tabular}}
+
+    \label{tab:llm_comparison}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[ht]
+    \centering
+    \caption{Prompt cho tác vụ cắt tìa thực thể chủ đề}
+    \label{tab:topic_prune_prompt}
+    \begin{tabular}{p{0.9\textwidth}}
+        \toprule
+        \textbf{Prompt Cắt giảm chủ đề} \\
+        \midrule
+        Exact Match                     \\
+        F1 Score                        \\
+        Accuracy                        \\
+        Hallucination                   \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\efloatseparator
+ 
+\begin{table}[ht]
+    \centering
+    \caption{Prompt cho tác vụ phát hiện thực thể trong câu}
+    \label{tab:ER_prompt}
+    \begin{tabular}{p{0.9\textwidth}}
+        \toprule
+        \textbf{Prompt Cắt giảm chủ đề} \\
+        \midrule
+        Exact Match                     \\
+        F1 Score                        \\
+        Accuracy                        \\
+        Hallucination                   \\
+        \bottomrule
+    \end{tabular}
+\end{table}

@@ -1,0 +1,38 @@
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{Chapter3/Fig/pipeline.png}
+    \caption{Mô hình \gls{rag} tích hợp truy xuất, suy luận đồ thị tri thức với truy xuất cơ sở dữ liệu vector}
+    \label{fig:proposed_method}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth]{Chapter4/Fig/ontology.png}
+    \caption{Ontology}
+    \label{fig:ontology}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth, trim=50 50 50 100, clip]{Chapter4/Fig/knowledge_graph.png}
+    \caption{Knowledge Graph}
+    \label{fig:knowledge_graph}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth, trim=50 50 50 100, clip]{Chapter4/Fig/document_tree.png}
+    \caption{Cây tài liệu}
+    \label{fig:document_tree}
+\end{figure}
+\efloatseparator
+ 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{Chapter4/Fig/compare_with_average.png}
+    \caption{Kết quả so sánh với kết quả trung bình của từng năm}
+    \label{fig:evaluation}
+\end{figure}

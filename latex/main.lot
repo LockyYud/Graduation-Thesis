@@ -1,0 +1,23 @@
+\babel@toc {vietnamese}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Cấu hình phần cứng sử dụng trong nghiên cứu}}{34}{table.caption.27}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Danh sách thư viện và công cụ sử dụng trong nghiên cứu}}{35}{table.4.2}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces So sánh hiệu suất của các phương pháp khác nhau với GPT-4o-mini.}}{38}{table.caption.32}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces So sánh hiệu suất giữa câu trả lời trực tiếp và phương pháp đề xuất với các mô hình khác nhau. Các giá trị trong ngoặc đơn biểu thị phần trăm cải thiện.}}{39}{table.caption.34}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Thực nghiệm trả lời câu hỏi mở.}}{40}{table.caption.36}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Thực nghiệm trả lời câu hỏi mở.}}{42}{table.caption.37}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Thực nghiệm lý giải câu hỏi trắc nghiệm.}}{43}{table.caption.38}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {B.1}{\ignorespaces Prompt cho tác vụ nhận diện thực thể}}{54}{table.caption.43}%
+\contentsline {table}{\numberline {B.2}{\ignorespaces Prompt cho tác vụ cắt giảm các quan hệ trong quá trình khám phá tri thức}}{55}{table.caption.44}%
+\contentsline {table}{\numberline {B.3}{\ignorespaces Prompt cho tác vụ cắt giảm tất cả các quan hệ cùng 1 lúc trong quá trình khám phá tri thức}}{55}{table.caption.45}%
+\contentsline {table}{\numberline {B.4}{\ignorespaces Prompt cho tác vụ cắt giảm thực thể trong quá trình khám phá}}{56}{table.caption.46}%
+\contentsline {table}{\numberline {B.5}{\ignorespaces Prompt cho tác vụ suy luận câu trả lời}}{57}{table.caption.47}%
+\contentsline {table}{\numberline {B.6}{\ignorespaces Prompt cho tác vụ dự đoán các manh mối}}{57}{table.caption.48}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {C.1}{\ignorespaces Câu trả lời của phương pháp đề xuất cho đề thi THPT Lịch sử 2018, mã đề 302. Với các câu in đậm là câu trả lời sai}}{58}{table.caption.53}%
