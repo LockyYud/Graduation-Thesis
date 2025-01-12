@@ -64,7 +64,6 @@ class Pipeline:
             sorted(chunks_score.items(), key=lambda item: item[1], reverse=True)
         )
         top_k_chunks = heapq.nlargest(top_k, chunks_score, key=chunks_score.get)
-        print("Top k", top_k_chunks)
         return [chunk for chunk in chunks if chunk["element_id"] in top_k_chunks]
 
     def handle_relations(
@@ -224,7 +223,7 @@ class Pipeline:
     ):
         clues = "Không có manh mối nào"
         can_answer = False
-        question_embedding = self.embedding(text=question)
+        question_embedding = self.embedding.encode([question])["dense_vecs"][0]
         vector_search_results = self.interactor_database.vector_search(
             index_name=vector_index, question_vector=question_embedding, k=10
         )
@@ -289,21 +288,18 @@ class Pipeline:
         for _ in range(self.depth_loop):
             if can_answer == True:
                 break
-            print("handle_relations")
             reasoning_paths = self.handle_relations(
                 question=question,
                 reasonings_path=reasoning_paths,
                 beam_depth=self.beam_depth,
             )
 
-            print("handle_entities")
             reasoning_paths = self.handle_entities(
                 question=question,
                 reasonings_path=reasoning_paths,
                 k=self.reasoning_depth,
             )
 
-            print("handle_chunks")
             entities_guided_chunks = self.db_interactor.get_chunks(
                 list(
                     set(
