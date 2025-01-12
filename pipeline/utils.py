@@ -1,4 +1,8 @@
+import heapq
+from typing import List
 import numpy as np
+
+from pipeline.DatabaseInteractor import Neo4jInteractor
 
 
 def cosine_similarity(vec1, vec2):
@@ -26,16 +30,19 @@ def cosine_similarity(vec1, vec2):
     return 1 / 2 * (1 + dot_product)  # Equivalent to dot product after normalization
 
 
-def ranking_chunks(chunks: list, question: str, embeddings, interactor_database):
-    question_vector = embeddings(text=question)
-    chunks_content = interactor_database.get_chunks(chunks)
+def ranking_chunks(
+    interactor_database: Neo4jInteractor,
+    chunks: list,
+    question_vector: List[float] | list[List[float]],
+    top_k: int,
+    alpha: int = 40,
+):
     score_embed_chunks = {}
-    for chunk in chunks_content:
+    for chunk in chunks:
         score = cosine_similarity(question_vector, chunk["embedding"])
         score_embed_chunks[chunk["element_id"]] = score
-
     distances = interactor_database.calculate_distances(
-        docs_id1=[str(_) for _ in chunks], docs_id2=[]
+        docs_id=[str(_["element_id"]) for _ in chunks], docs_id_ex=[]
     )
 
     chunks_score = {}
@@ -45,12 +52,18 @@ def ranking_chunks(chunks: list, question: str, embeddings, interactor_database)
         if distance["nodeB"] not in chunks_score:
             chunks_score[distance["nodeB"]] = score_embed_chunks[distance["nodeB"]]
         chunks_score[distance["nodeA"]] += (
-            1 / (distance["distance"] + 40) * score_embed_chunks[distance["nodeB"]]
+            1
+            / (distance["distance"] * distance["distance"] + alpha)
+            * score_embed_chunks[distance["nodeB"]]
         )
         chunks_score[distance["nodeB"]] += (
-            1 / (distance["distance"] + 40) * score_embed_chunks[distance["nodeA"]]
+            1
+            / (distance["distance"] * distance["distance"] + alpha)
+            * score_embed_chunks[distance["nodeA"]]
         )
     chunks_score = dict(
         sorted(chunks_score.items(), key=lambda item: item[1], reverse=True)
     )
-    return chunks_score
+    top_k_chunks = heapq.nlargest(top_k, chunks_score, key=chunks_score.get)
+    print("Top k", top_k_chunks)
+    return [chunk for chunk in chunks if chunk["element_id"] in top_k_chunks]
